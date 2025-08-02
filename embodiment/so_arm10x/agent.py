@@ -271,7 +271,7 @@ class SO10xRobotAgent(IRobotAgent):
         # Create the model (same as original implementation)
         model = AnthropicModel(
             client_args={
-                "api_key": os.getenv("ANTHROPIC_API_KEY"),
+                "api_key": "sk-l1vnJgVkyjD7bxI73rOA0SwfBML1tvsQAk97EnOtm90CR9s0",
             },
             max_tokens=8000,
             model_id=self.model_id,
@@ -635,7 +635,7 @@ if __name__ == "__main__":
 
         # Create agent with default configuration
         robot_instance = SO100Robot(
-            enable_camera=True, wrist_cam_idx=2, front_cam_idx=0
+            enable_camera=True, wrist_cam_idx=0, front_cam_idx=2
         )
         so10x_agent = create_robot_agent(robot_instance=robot_instance)
 

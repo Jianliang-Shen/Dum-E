@@ -243,17 +243,17 @@ async def run_dum_e(
 ):
     logger.info(f"Starting bot")
 
-    stt = DeepgramSTTService(api_key=os.getenv("DEEPGRAM_API_KEY"))
+    stt = DeepgramSTTService(api_key="a578e3b372ffb7856c6095772cc10e63724a6b88")
 
     tts = ElevenLabsTTSService(
-        api_key=os.getenv("ELEVENLABS_API_KEY"),
+        api_key="sk_b02f1617464701d223dd469d2aabd29e1245058061403365",
         voice_id="cgSgspJ2msm6clMCkdW9",
         sample_rate=24000,
         params=ElevenLabsTTSService.InputParams(language=Language.EN),
     )
 
     llm = AnthropicLLMService(
-        api_key=os.getenv("ANTHROPIC_API_KEY"),
+        api_key=os.getenv("sk-l1vnJgVkyjD7bxI73rOA0SwfBML1tvsQAk97EnOtm90CR9s0"),
         model="claude-3-5-haiku-20241022",
         params=AnthropicLLMService.InputParams(temperature=0.7, max_tokens=500),
     )
