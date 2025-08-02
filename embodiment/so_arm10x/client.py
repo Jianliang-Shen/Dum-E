@@ -43,7 +43,7 @@ from tqdm import tqdm
 from lerobot.common.datasets.lerobot_dataset import LeRobotDataset
 from lerobot.common.robot_devices.cameras.configs import OpenCVCameraConfig
 from lerobot.common.robot_devices.motors.dynamixel import TorqueMode
-from lerobot.common.robot_devices.robots.configs import So100RobotConfig
+from lerobot.common.robot_devices.robots.configs import So101RobotConfig
 from lerobot.common.robot_devices.robots.utils import make_robot_from_config
 from lerobot.common.robot_devices.utils import (
     RobotDeviceAlreadyConnectedError,
@@ -64,7 +64,7 @@ class SO100Robot:
     def __init__(
         self, calibrate=False, enable_camera=False, wrist_cam_idx=0, front_cam_idx=2
     ):
-        self.config = So100RobotConfig()
+        self.config = So101RobotConfig()
         self.calibrate = calibrate
         self.enable_camera = enable_camera
         # self.cam_idx = cam_idx
@@ -141,10 +141,10 @@ class SO100Robot:
         self.motor_bus.write("Mode", 0)
         # Set P_Coefficient to lower value to avoid shakiness (Default is 32)
         # self.motor_bus.write("P_Coefficient", 16)
-        self.motor_bus.write("P_Coefficient", 10)
+        self.motor_bus.write("P_Coefficient", 3)
         # Set I_Coefficient and D_Coefficient to default value 0 and 32
         self.motor_bus.write("I_Coefficient", 0)
-        self.motor_bus.write("D_Coefficient", 32)
+        self.motor_bus.write("D_Coefficient",7)
         # Close the write lock so that Maximum_Acceleration gets written to EPROM address,
         # which is mandatory for Maximum_Acceleration to take effect after rebooting.
         self.motor_bus.write("Lock", 0)
